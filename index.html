@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Automedicación y Salud Mental</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f0f8ff;
+      color: #333;
+    }
+    header {
+      background-color: #0074b7;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #004b80;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      background-color: #0074b7;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background-color: #005f99;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #005a87;
+    }
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    .source-link {
+      font-size: 14px;
+      margin-top: 5px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Automedicación y Salud Mental</h1>
+    <p>Un análisis completo con datos, prevención y soluciones</p>
+  </header>
+
+  <nav>
+    <a href="#conceptos">Conceptos</a>
+    <a href="#estadisticas">Estadísticas</a>
+    <a href="#antecedentes">Antecedentes</a>
+    <a href="#riesgos">Riesgos</a>
+    <a href="#prevencion">Prevención</a>
+  </nav>
+
+  <section id="conceptos">
+    <h2>Conceptos Clave</h2>
+    <p><strong>Automedicación:</strong> Uso de medicamentos sin receta médica. Riesgos: dependencia, efectos secundarios y más.</p>
+    <p><strong>Salud Mental:</strong> Estado emocional, psicológico y social que influye en nuestra vida diaria.</p>
+    <!-- Aquí irán más conceptos -->
+  </section>
+
+  <section id="estadisticas">
+    <h2>Estadísticas por Edad</h2>
+    <canvas id="graficaAutomedicacion"></canvas>
+    <a class="source-link" href="https://www.gob.mx/cofepris" target="_blank">Fuente: COFEPRIS</a>
+    
+    <script>
+      const ctx = document.getElementById('graficaAutomedicacion').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Primaria (6-12)', 'Secundaria (12-15)', 'Preparatoria (15-18)'],
+          datasets: [{
+            label: 'Automedicación (%)',
+            data: [25, 45, 65],
+            backgroundColor: ['#4caf50', '#2196f3', '#f44336']
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: 'Porcentaje de automedicación por grupo de edad'
+            }
+          }
+        }
+      });
+    </script>
+  </section>
